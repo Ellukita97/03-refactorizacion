@@ -1,11 +1,12 @@
 package org.example.a;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Hotel extends Alojamiento {
-    private ArrayList<TipoHabitacion> listaHabitaciones;
+    private LinkedList<TipoHabitacion> listaHabitaciones;
 
-    public Hotel(String nombre, String ciudad, float calificacion, ArrayList<TipoHabitacion> listaHabitaciones) {
+    public Hotel(String nombre, String ciudad, float calificacion, LinkedList<TipoHabitacion> listaHabitaciones) {
         super(nombre, ciudad, calificacion);
         this.listaHabitaciones = listaHabitaciones;
     }
@@ -20,8 +21,8 @@ public class Hotel extends Alojamiento {
     public void verAlojamiento() {
         System.out.println("Nombre: " + getNombre());
         System.out.println("Ciudad: " + getCiudad());
-        System.out.println("Calificación: " + getCalificacion());
-        System.out.println("Tipo de habitacion: \n");
+        System.out.println("Calificacion: " + getCalificacion());
+        System.out.println("Tipo de habitacion:");
         verTiposHabitacion();
     }
 
@@ -29,17 +30,17 @@ public class Hotel extends Alojamiento {
         for (TipoHabitacion unHabitacion: getListaHabitaciones()){
             System.out.println("------------------------------------------");
             unHabitacion.mostrarDatos();
-            System.out.println("------------------------------------------");
         }
+        System.out.println("------------------------------------------");
     }
 
     // Getters and setters
 
-    public ArrayList<TipoHabitacion> getListaHabitaciones() {
+    public LinkedList<TipoHabitacion> getListaHabitaciones() {
         return listaHabitaciones;
     }
 
-    public void setListaHabitaciones(ArrayList<TipoHabitacion> listaHabitaciones) {
+    public void setListaHabitaciones(LinkedList<TipoHabitacion> listaHabitaciones) {
         this.listaHabitaciones = listaHabitaciones;
     }
 }

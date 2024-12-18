@@ -15,8 +15,8 @@ public class DiaSol {
     public void mostrarDatos() {
         System.out.println("Incluye almuerzo: " + isIncluyeAlmuerzo());
         System.out.println("Actividades: ");
-        for (String actividad : getActividades()) {
-            System.out.println("1 - " + actividad);
+        for (int i = 0; i < getActividades().size(); i++) {
+            System.out.println((i + 1) + " - " + getActividades().get(i));
         }
     }
 

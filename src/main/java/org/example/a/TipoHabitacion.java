@@ -17,7 +17,7 @@ public class TipoHabitacion {
         System.out.println("Titulo: " + getTitulo());
         System.out.println("Descripcion : " + getDescripcion());
         System.out.println("Cantidad: " + getCantidad());
-        System.out.println("Precio: " + getPrecio());
+        System.out.println("Precio: $ " + getPrecio());
     }
 
     // Getters and setters

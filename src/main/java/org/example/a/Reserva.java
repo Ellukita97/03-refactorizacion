@@ -20,14 +20,18 @@ public class Reserva {
     }
 
     public void mostrarDetallesReserva() {
+        System.out.println("------------------------------------------");
         System.out.println("Cliente: \n");
         getCliente().mostrarDatos();
-        System.out.println("Precio total: " + getPrecioTotal());
+        System.out.println("------------------------------------------");
         System.out.println("Hora de llegada: " + getHoraLlegada());
-        System.out.println("Habitaciones: \n");
-        getTipoHabitacion().mostrarDatos();
         System.out.println("Dia de inicio: " + getDiaInicio());
         System.out.println("Dia de final: " + getDiaFin());
+        System.out.println("Precio total: $ " + getPrecioTotal());
+        System.out.println("------------------------------------------");
+        System.out.println(" \nHabitaciones: \n");
+        getTipoHabitacion().mostrarDatos();
+        System.out.println("------------------------------------------");
     }
 
     // Getters and setters
