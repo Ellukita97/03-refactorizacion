@@ -9,9 +9,6 @@ public class AlojamientoControladoraImplementacion implements IAlojamientoContro
 
     private static LinkedList<Alojamiento> alojamientosDisponibles;
 
-    private static LinkedList<Cliente> cliente;
-    private static LinkedList<Reserva> reserva;
-
     public AlojamientoControladoraImplementacion() {
     }
 
@@ -275,19 +272,4 @@ public class AlojamientoControladoraImplementacion implements IAlojamientoContro
         AlojamientoControladoraImplementacion.alojamientosDisponibles = alojamientosDisponibles;
     }
 
-    public static LinkedList<Cliente> getCliente() {
-        return cliente;
-    }
-
-    public static void setCliente(LinkedList<Cliente> cliente) {
-        AlojamientoControladoraImplementacion.cliente = cliente;
-    }
-
-    public static LinkedList<Reserva> getReserva() {
-        return reserva;
-    }
-
-    public static void setReserva(LinkedList<Reserva> reserva) {
-        AlojamientoControladoraImplementacion.reserva = reserva;
-    }
 }

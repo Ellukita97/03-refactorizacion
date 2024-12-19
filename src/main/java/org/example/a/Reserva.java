@@ -1,6 +1,7 @@
 package org.example.a;
 
 import java.time.LocalTime;
+import java.util.LinkedList;
 
 public class Reserva {
     private Cliente cliente;
@@ -9,6 +10,9 @@ public class Reserva {
     private Alojamiento alojamiento;
     private Integer diaInicio;
     private Integer diaFin;
+
+    public Reserva() {
+    }
 
     public Reserva(Cliente cliente, int precioTotal, LocalTime horaLlegada, Alojamiento alojamiento, int diaInicio, int diaFin) {
         this.cliente = cliente;
@@ -64,8 +68,15 @@ public class Reserva {
         return alojamiento;
     }
 
-    public void setTipoHabitacion(Alojamiento tipoHabitacion) {
-        this.alojamiento = tipoHabitacion;
+    public void setTipoHabitacion(Alojamiento alojamiento) {
+        this.alojamiento = alojamiento;
+    }
+
+    public void setTipoHabitacion(TipoHabitacion tipoHabitacion, Hotel unHotel) {
+        LinkedList<TipoHabitacion> habitacionComprada = new LinkedList<>();
+        Hotel hotelAlquilado = unHotel;
+        hotelAlquilado.setListaHabitaciones(habitacionComprada);
+        this.alojamiento = unHotel;
     }
 
     public int getDiaInicio() {

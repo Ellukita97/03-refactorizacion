@@ -30,8 +30,10 @@ public class Main {
         System.out.println("///////////////////////////////////////////////////////////////////////////////////");
         if (alojamiento instanceof Hotel) {
             Hotel unHotel = (Hotel) alojamiento;
-            unHotel.habitacionesDisponibles(unHotel.getNombre(), inicioHospedaje, finalHospedaje, cantAdultos, cantNinios, cantHabitaciones);
+            LinkedList<TipoHabitacion> habitacionesDisponibles = unHotel.habitacionesDisponibles(unHotel.getNombre(), inicioHospedaje, finalHospedaje, cantAdultos, cantNinios, cantHabitaciones);
+            seleccionarHabitacion(habitacionesDisponibles, unHotel);
         }
+        System.out.println("///////////////////////////////////////////////////////////////////////////////////");
 
     }
 
@@ -85,27 +87,18 @@ public class Main {
         }
     }
 
-    /*public static void seleccionarHabitacion(LinkedList<Habitacion> habitaciones, ReservacionCliente reservacionCliente) {
-        boolean salir = false;
-        while (!salir) {
+    public static void seleccionarHabitacion(LinkedList<TipoHabitacion> habitacionesDisponibles, Hotel hotelAResevar) {
+        while (true) {
             System.out.println("-----------------------------");
-            int idHabitacion = Sistema.ingresarNumero("Ingrese la id de la habitacion a reservar: ");
-
-
-            for (int i = 0; i < habitaciones.size(); i++) {
-                if (habitaciones.get(i).getIdHabitacion() == idHabitacion) {
-
-                    reservacionCliente.setHabitacionCompradaDatos(habitaciones.get(i));
-                    System.out.println("Habitacion seleccionada con exito");
-                    return;
-                }
+            try {
+                int idHabitacion = ingresarNumero("Ingrese la id de la habitacion a reservar: ");
+                ReservaController.getReserva().setTipoHabitacion(habitacionesDisponibles.get(idHabitacion), hotelAResevar);
+                return;
+            } catch (Exception _) {
+                System.out.println("Habitacion no encontrada");
             }
-
-            //limpiarConsola();
-            System.out.println("Habitacion no encontrada");
         }
-
-    }*/
+    }
 
 
     public static String ingresarTexto(String msg) {

@@ -48,18 +48,24 @@ public class Hotel extends Alojamiento {
         System.out.println("------------------------------------------");
     }
 
-    public void habitacionesDisponibles(String nombreHotel, int diaInicioHospedaje, int diaFinalHospedaje, int cantAdultos, int cantNinios, int cantHabitacionesCliente) {
-        if (!nombreHotel.equalsIgnoreCase(this.getNombre())) return;
-        System.out.println("ADASDASD");
-        int cantidadPersonas = cantAdultos + cantNinios;
+    public LinkedList<TipoHabitacion> habitacionesDisponibles(String nombreHotel, int diaInicioHospedaje, int diaFinalHospedaje, int cantAdultos, int cantNinios, int cantHabitacionesCliente) {
+        if (!nombreHotel.equalsIgnoreCase(this.getNombre())) return new LinkedList<>();
+
         System.out.println("------------------------------------------");
-        for (int i = 0; i< listaHabitaciones.size(); i++) {
+        return buscarYMostrarHabitacionesDisponibles(diaInicioHospedaje, diaFinalHospedaje, cantAdultos, cantNinios, cantHabitacionesCliente);
+    }
+
+    private LinkedList<TipoHabitacion> buscarYMostrarHabitacionesDisponibles(int diaInicioHospedaje, int diaFinalHospedaje, int cantAdultos, int cantNinios, int cantHabitacionesCliente) {
+        LinkedList<TipoHabitacion> habitacionsDisponibles = new LinkedList<>();
+        for (int i = 0; i < listaHabitaciones.size(); i++) {
             if (listaHabitaciones.get(i).getCantidad() < cantHabitacionesCliente) continue;
-            System.out.println("Id: "+ i);
+            System.out.println("Id: " + i);
             listaHabitaciones.get(i).mostrarDatos();
-            System.out.println("Precio total por su estadia: " + calcularPrecio(listaHabitaciones.get(i).getPrecio(), cantidadPersonas, diaInicioHospedaje, diaFinalHospedaje));
+            System.out.println("Precio total por su estadia: " + calcularPrecio(listaHabitaciones.get(i).getPrecio(), cantAdultos + cantNinios, diaInicioHospedaje, diaFinalHospedaje));
             System.out.println("------------------------------------------");
+            habitacionsDisponibles.add(listaHabitaciones.get(i));
         }
+        return habitacionsDisponibles;
     }
 
     @Override
