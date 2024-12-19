@@ -1,12 +1,12 @@
 package org.example.a;
 
-public class TipoHabitacion {
+public class Habitacion {
     private String titulo;
     private String descripcion;
     private Integer cantidad;
     private Integer precio;
 
-    public TipoHabitacion(String titulo, String descripcion, int cantidad, int precio) {
+    public Habitacion(String titulo, String descripcion, int cantidad, int precio) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.cantidad = cantidad;

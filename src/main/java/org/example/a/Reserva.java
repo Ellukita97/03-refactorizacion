@@ -1,11 +1,12 @@
 package org.example.a;
 
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.LinkedList;
 
 public class Reserva {
     private Cliente cliente;
-    private Integer precioTotal;
+    private Float precioTotal;
     private LocalTime horaLlegada;
     private Alojamiento alojamiento;
     private Integer diaInicio;
@@ -14,13 +15,23 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(Cliente cliente, int precioTotal, LocalTime horaLlegada, Alojamiento alojamiento, int diaInicio, int diaFin) {
+    public Reserva(Cliente cliente, float precioTotal, LocalTime horaLlegada, Alojamiento alojamiento, int diaInicio, int diaFin) {
         this.cliente = cliente;
         this.precioTotal = precioTotal;
         this.horaLlegada = horaLlegada;
         this.alojamiento = alojamiento;
         this.diaInicio = diaInicio;
         this.diaFin = diaFin;
+    }
+
+    public boolean reservarHabitacionCliente(String nombre, String apellido, String email, String nacionalidad, String telefono, Date fechaNacimiento, LocalTime horaDeLlegada) {
+        Cliente clienteSeleccionado = new Cliente(nombre, apellido, nacionalidad, telefono, email, fechaNacimiento);
+        this.setCliente(clienteSeleccionado);
+        this.setHoraLlegada(horaDeLlegada);
+        if (cliente != null && precioTotal != 0 && horaLlegada != null && alojamiento != null && diaInicio != null && diaFin != null) {
+            return true;
+        }
+        return false;
     }
 
     public void mostrarDetallesReserva() {
@@ -33,7 +44,6 @@ public class Reserva {
         System.out.println("Dia de final: " + getDiaFin());
         System.out.println("Precio total: $ " + getPrecioTotal());
         System.out.println("------------------------------------------");
-        System.out.println(" \nHabitaciones: \n");
         alojamiento.verAlojamiento();
         System.out.println("------------------------------------------");
     }
@@ -48,11 +58,11 @@ public class Reserva {
         this.cliente = cliente;
     }
 
-    public int getPrecioTotal() {
+    public float getPrecioTotal() {
         return precioTotal;
     }
 
-    public void setPrecioTotal(int precioTotal) {
+    public void setPrecioTotal(float precioTotal) {
         this.precioTotal = precioTotal;
     }
 
@@ -64,17 +74,18 @@ public class Reserva {
         this.horaLlegada = horaLlegada;
     }
 
-    public Alojamiento getTipoHabitacion() {
+    public Alojamiento getAlojamiento() {
         return alojamiento;
     }
 
-    public void setTipoHabitacion(Alojamiento alojamiento) {
+    public void setAlojamiento(Alojamiento alojamiento) {
         this.alojamiento = alojamiento;
     }
 
-    public void setTipoHabitacion(TipoHabitacion tipoHabitacion, Hotel unHotel) {
-        LinkedList<TipoHabitacion> habitacionComprada = new LinkedList<>();
+    public void setAlojamiento(Habitacion habitacion, Hotel unHotel) {
+        LinkedList<Habitacion> habitacionComprada = new LinkedList<>();
         Hotel hotelAlquilado = unHotel;
+        habitacionComprada.add(habitacion);
         hotelAlquilado.setListaHabitaciones(habitacionComprada);
         this.alojamiento = unHotel;
     }

@@ -71,28 +71,28 @@ public class AlojamientoControladoraImplementacion implements IAlojamientoContro
 
         //CREACION DE HOTELES
 
-        LinkedList<TipoHabitacion> habitacionHotel1 = new LinkedList<>();
-        habitacionHotel1.add(new TipoHabitacion("Habitación sencilla", "La habitación sencilla tiene una cama matrimonial, vista al jardín, aire acondicionado, minibar, TV de pantalla plana, y baño privado", 40, 50));
-        habitacionHotel1.add(new TipoHabitacion("Habitación doble", "La habitación doble tiene 2 camas dobles, vista al mar, aire acondicionado, cafetera, TV de pantalla plana, ducha y escritorio", 50, 50));
-        habitacionHotel1.add(new TipoHabitacion("Habitación familiar", "La habitación familiar tiene 2 camas dobles, baño privado, aire acondicionado, TV de pantalla plana, escritorio, y vistas al mar", 90, 50));
-        habitacionHotel1.add(new TipoHabitacion("Habitación superior", "Habitación con cama queen size, escritorio, baño con ducha y tina, aire acondicionado, TV de pantalla plana, y minibar", 120, 50));
-        habitacionHotel1.add(new TipoHabitacion("Nuevo Tipo de Habitación", "Titulo", 12, 50));
+        LinkedList<Habitacion> habitacionHotel1 = new LinkedList<>();
+        habitacionHotel1.add(new Habitacion("Habitación sencilla", "La habitación sencilla tiene una cama matrimonial, vista al jardín, aire acondicionado, minibar, TV de pantalla plana, y baño privado", 40, 50));
+        habitacionHotel1.add(new Habitacion("Habitación doble", "La habitación doble tiene 2 camas dobles, vista al mar, aire acondicionado, cafetera, TV de pantalla plana, ducha y escritorio", 50, 50));
+        habitacionHotel1.add(new Habitacion("Habitación familiar", "La habitación familiar tiene 2 camas dobles, baño privado, aire acondicionado, TV de pantalla plana, escritorio, y vistas al mar", 90, 50));
+        habitacionHotel1.add(new Habitacion("Habitación superior", "Habitación con cama queen size, escritorio, baño con ducha y tina, aire acondicionado, TV de pantalla plana, y minibar", 120, 50));
+        habitacionHotel1.add(new Habitacion("Nuevo Tipo de Habitación", "Titulo", 12, 50));
         Hotel hotel1 = new Hotel("Hotel Las Dunas", "Cabo Polonio", 4.5f, habitacionHotel1);
 
-        LinkedList<TipoHabitacion> habitacionHotel3 = new LinkedList<>();
-        habitacionHotel3.add(new TipoHabitacion("Habitación sencilla", "La habitación sencilla tiene una cama matrimonial, vista al jardín, aire acondicionado, minibar, TV de pantalla plana, y baño privado", 40, 50));
-        habitacionHotel3.add(new TipoHabitacion("Habitación doble", "La habitación doble tiene 2 camas dobles, vista al mar, aire acondicionado, cafetera, TV de pantalla plana, ducha y escritorio", 50, 50));
-        habitacionHotel3.add(new TipoHabitacion("Habitación familiar", "La habitación familiar tiene 2 camas dobles, baño privado, aire acondicionado, TV de pantalla plana, escritorio, y vistas al mar", 90, 50));
-        habitacionHotel3.add(new TipoHabitacion("Habitación superior", "Habitación con cama queen size, escritorio, baño con ducha y tina, aire acondicionado, TV de pantalla plana, y minibar", 120, 50));
-        habitacionHotel3.add(new TipoHabitacion("Habitación Extrema", "La mejor de todas", 5, 50));
+        LinkedList<Habitacion> habitacionHotel3 = new LinkedList<>();
+        habitacionHotel3.add(new Habitacion("Habitación sencilla", "La habitación sencilla tiene una cama matrimonial, vista al jardín, aire acondicionado, minibar, TV de pantalla plana, y baño privado", 40, 50));
+        habitacionHotel3.add(new Habitacion("Habitación doble", "La habitación doble tiene 2 camas dobles, vista al mar, aire acondicionado, cafetera, TV de pantalla plana, ducha y escritorio", 50, 50));
+        habitacionHotel3.add(new Habitacion("Habitación familiar", "La habitación familiar tiene 2 camas dobles, baño privado, aire acondicionado, TV de pantalla plana, escritorio, y vistas al mar", 90, 50));
+        habitacionHotel3.add(new Habitacion("Habitación superior", "Habitación con cama queen size, escritorio, baño con ducha y tina, aire acondicionado, TV de pantalla plana, y minibar", 120, 50));
+        habitacionHotel3.add(new Habitacion("Habitación Extrema", "La mejor de todas", 5, 50));
         Hotel hotel3 = new Hotel("Hotel Costa Dorada", "La Paloma", 3.5f, habitacionHotel3);
 
-        LinkedList<TipoHabitacion> habitacionHotel2 = new LinkedList<>();
-        habitacionHotel2.add(new TipoHabitacion("Habitación sencilla", "La habitación sencilla tiene una cama matrimonial, vista al jardín, aire acondicionado, minibar, TV de pantalla plana, y baño privado", 40, 50));
-        habitacionHotel2.add(new TipoHabitacion("Habitación doble", "La habitación doble tiene 2 camas dobles, vista al mar, aire acondicionado, cafetera, TV de pantalla plana, ducha y escritorio", 50, 50));
-        habitacionHotel2.add(new TipoHabitacion("Habitación familiar", "La habitación familiar tiene 2 camas dobles, baño privado, aire acondicionado, TV de pantalla plana, escritorio, y vistas al mar", 90, 50));
-        habitacionHotel2.add(new TipoHabitacion("Habitación superior", "Habitación con cama queen size, escritorio, baño con ducha y tina, aire acondicionado, TV de pantalla plana, y minibar", 120, 50));
-        habitacionHotel2.add(new TipoHabitacion("Habitación Extrema", "La mejor de todas", 5, 50));
+        LinkedList<Habitacion> habitacionHotel2 = new LinkedList<>();
+        habitacionHotel2.add(new Habitacion("Habitación sencilla", "La habitación sencilla tiene una cama matrimonial, vista al jardín, aire acondicionado, minibar, TV de pantalla plana, y baño privado", 40, 50));
+        habitacionHotel2.add(new Habitacion("Habitación doble", "La habitación doble tiene 2 camas dobles, vista al mar, aire acondicionado, cafetera, TV de pantalla plana, ducha y escritorio", 50, 50));
+        habitacionHotel2.add(new Habitacion("Habitación familiar", "La habitación familiar tiene 2 camas dobles, baño privado, aire acondicionado, TV de pantalla plana, escritorio, y vistas al mar", 90, 50));
+        habitacionHotel2.add(new Habitacion("Habitación superior", "Habitación con cama queen size, escritorio, baño con ducha y tina, aire acondicionado, TV de pantalla plana, y minibar", 120, 50));
+        habitacionHotel2.add(new Habitacion("Habitación Extrema", "La mejor de todas", 5, 50));
         Hotel hotel2 = new Hotel("Hotel Costa Dorada", "La Paloma", 4.5f, habitacionHotel2);
 
         listaHotel.add(hotel1);
@@ -176,7 +176,7 @@ public class AlojamientoControladoraImplementacion implements IAlojamientoContro
         if (alojamiento instanceof Hotel) {
             Hotel unHotel = (Hotel) alojamiento;
             if (!unHotel.getNombre().equalsIgnoreCase(hotelElegido.getNombre())) return false;
-            LinkedList<TipoHabitacion> habitacionesFiltradas = unHotel.verificarCantidadDeHabitaciones(cantHabitacionesCliente);
+            LinkedList<Habitacion> habitacionesFiltradas = unHotel.verificarCantidadDeHabitaciones(cantHabitacionesCliente);
             return !habitacionesFiltradas.isEmpty();
         }
         return false;
@@ -216,26 +216,6 @@ public class AlojamientoControladoraImplementacion implements IAlojamientoContro
             System.out.println("------------------------------------------");
             index++;
         }
-    }
-
-    @Override
-    public void confirmarHabitaciones() {
-        //Por Implementar
-    }
-
-    @Override
-    public void reservarAlojamientoOHabitacion() {
-        //Por Implementar
-    }
-
-    @Override
-    public void actualizarReserva() {
-        //Por Implementar
-    }
-
-    @Override
-    public void actualizarAlojamiento() {
-        //Por Implementar
     }
 
     //Getters y Setters

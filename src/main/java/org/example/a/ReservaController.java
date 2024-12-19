@@ -1,7 +1,5 @@
 package org.example.a;
 
-import java.util.LinkedList;
-
 public class ReservaController {
     private static Cliente cliente;
     private static Reserva reserva = new Reserva();

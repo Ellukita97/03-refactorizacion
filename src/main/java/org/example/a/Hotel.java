@@ -3,22 +3,22 @@ package org.example.a;
 import java.util.LinkedList;
 
 public class Hotel extends Alojamiento {
-    private LinkedList<TipoHabitacion> listaHabitaciones;
+    private LinkedList<Habitacion> listaHabitaciones;
 
-    public Hotel(String nombre, String ciudad, float calificacion, LinkedList<TipoHabitacion> listaHabitaciones) {
+    public Hotel(String nombre, String ciudad, float calificacion, LinkedList<Habitacion> listaHabitaciones) {
         super(nombre, ciudad, calificacion);
         this.listaHabitaciones = listaHabitaciones;
     }
 
-    public LinkedList<TipoHabitacion> verificarCantidadDeHabitaciones(int cantidadPersonas) {
+    public LinkedList<Habitacion> verificarCantidadDeHabitaciones(int cantidadPersonas) {
         System.out.println("Length habitaciones " + listaHabitaciones.size());
-        LinkedList<TipoHabitacion> newListaHabitaciones = new LinkedList<>();
+        LinkedList<Habitacion> newListaHabitaciones = new LinkedList<>();
 
-        for (TipoHabitacion habitacion : listaHabitaciones) {
+        for (Habitacion habitacion : listaHabitaciones) {
 
         }
 
-        for (TipoHabitacion unaHabiatacion : newListaHabitaciones) {
+        for (Habitacion unaHabiatacion : newListaHabitaciones) {
             if (unaHabiatacion.getCantidad() < cantidadPersonas) {
                 newListaHabitaciones.remove(unaHabiatacion);
             }
@@ -28,7 +28,7 @@ public class Hotel extends Alojamiento {
 
     public float calcularPrecioMasBajo(int diaInicio, int diaFinal) {
         int habitacionMasBaja = 0;
-        for (TipoHabitacion unaHabitacion : listaHabitaciones) {
+        for (Habitacion unaHabitacion : listaHabitaciones) {
             if (habitacionMasBaja == 0) {
                 habitacionMasBaja = unaHabitacion.getPrecio();
                 continue;
@@ -41,22 +41,22 @@ public class Hotel extends Alojamiento {
     }
 
     public void verHabitaciones() {
-        for (TipoHabitacion unHabitacion : getListaHabitaciones()) {
+        for (Habitacion unHabitacion : getListaHabitaciones()) {
             System.out.println("------------------------------------------");
             unHabitacion.mostrarDatos();
         }
         System.out.println("------------------------------------------");
     }
 
-    public LinkedList<TipoHabitacion> habitacionesDisponibles(String nombreHotel, int diaInicioHospedaje, int diaFinalHospedaje, int cantAdultos, int cantNinios, int cantHabitacionesCliente) {
+    public LinkedList<Habitacion> habitacionesDisponibles(String nombreHotel, int diaInicioHospedaje, int diaFinalHospedaje, int cantAdultos, int cantNinios, int cantHabitacionesCliente) {
         if (!nombreHotel.equalsIgnoreCase(this.getNombre())) return new LinkedList<>();
 
         System.out.println("------------------------------------------");
         return buscarYMostrarHabitacionesDisponibles(diaInicioHospedaje, diaFinalHospedaje, cantAdultos, cantNinios, cantHabitacionesCliente);
     }
 
-    private LinkedList<TipoHabitacion> buscarYMostrarHabitacionesDisponibles(int diaInicioHospedaje, int diaFinalHospedaje, int cantAdultos, int cantNinios, int cantHabitacionesCliente) {
-        LinkedList<TipoHabitacion> habitacionsDisponibles = new LinkedList<>();
+    private LinkedList<Habitacion> buscarYMostrarHabitacionesDisponibles(int diaInicioHospedaje, int diaFinalHospedaje, int cantAdultos, int cantNinios, int cantHabitacionesCliente) {
+        LinkedList<Habitacion> habitacionsDisponibles = new LinkedList<>();
         for (int i = 0; i < listaHabitaciones.size(); i++) {
             if (listaHabitaciones.get(i).getCantidad() < cantHabitacionesCliente) continue;
             System.out.println("Id: " + i);
@@ -68,7 +68,6 @@ public class Hotel extends Alojamiento {
         return habitacionsDisponibles;
     }
 
-    @Override
     public float calcularPrecio(float precio, int cantidadPersonas, int diaInicio, int diaFinal) {
         double precioFinal = precio;
 
@@ -96,11 +95,11 @@ public class Hotel extends Alojamiento {
 
     // Getters and setters
 
-    public LinkedList<TipoHabitacion> getListaHabitaciones() {
+    public LinkedList<Habitacion> getListaHabitaciones() {
         return listaHabitaciones;
     }
 
-    public void setListaHabitaciones(LinkedList<TipoHabitacion> listaHabitaciones) {
+    public void setListaHabitaciones(LinkedList<Habitacion> listaHabitaciones) {
         this.listaHabitaciones = listaHabitaciones;
     }
 }

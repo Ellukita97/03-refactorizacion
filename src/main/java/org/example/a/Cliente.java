@@ -1,6 +1,6 @@
 package org.example.a;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Cliente {
     private String nombre;
@@ -8,9 +8,9 @@ public class Cliente {
     private String nacionalidad;
     private String telefono;
     private String email;
-    private LocalDate fechaNacimiento;
+    private Date fechaNacimiento;
 
-    public Cliente(String nombre, String apellido, String nacionalidad, String telefono, String email, LocalDate fechaNacimiento) {
+    public Cliente(String nombre, String apellido, String nacionalidad, String telefono, String email, Date fechaNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.nacionalidad = nacionalidad;
@@ -70,11 +70,11 @@ public class Cliente {
         this.email = email;
     }
 
-    public LocalDate getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 }

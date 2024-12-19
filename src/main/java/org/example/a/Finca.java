@@ -1,14 +1,12 @@
 package org.example.a;
 
-import java.util.LinkedList;
-
 public class Finca extends Alojamiento {
     private DiaSol diaSol;
-    private Integer precioNoche;
+    private Float precioNoche;
     private Integer cantidadHabitaciones;
     private String descripcion;
 
-    public Finca(String nombre, String ciudad, float calificacion, DiaSol diaSol, int precioNoche, int cantidadHabitaciones, String descripcion) {
+    public Finca(String nombre, String ciudad, float calificacion, DiaSol diaSol, float precioNoche, int cantidadHabitaciones, String descripcion) {
         super(nombre, ciudad, calificacion);
         this.diaSol = diaSol;
         this.precioNoche = precioNoche;
@@ -55,11 +53,11 @@ public class Finca extends Alojamiento {
         this.diaSol = diaSol;
     }
 
-    public int getPrecioNoche() {
+    public float getPrecioNoche() {
         return precioNoche;
     }
 
-    public void setPrecioNoche(int precioNoche) {
+    public void setPrecioNoche(float precioNoche) {
         this.precioNoche = precioNoche;
     }
 
