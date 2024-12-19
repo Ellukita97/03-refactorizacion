@@ -4,17 +4,17 @@ import java.time.LocalTime;
 
 public class Reserva {
     private Cliente cliente;
-    private int precioTotal;
+    private Integer precioTotal;
     private LocalTime horaLlegada;
-    private TipoHabitacion tipoHabitacion;
-    private int diaInicio;
-    private int diaFin;
+    private Alojamiento alojamiento;
+    private Integer diaInicio;
+    private Integer diaFin;
 
-    public Reserva(Cliente cliente, int precioTotal, LocalTime horaLlegada, TipoHabitacion tipoHabitacion, int diaInicio, int diaFin) {
+    public Reserva(Cliente cliente, int precioTotal, LocalTime horaLlegada, Alojamiento alojamiento, int diaInicio, int diaFin) {
         this.cliente = cliente;
         this.precioTotal = precioTotal;
         this.horaLlegada = horaLlegada;
-        this.tipoHabitacion = tipoHabitacion;
+        this.alojamiento = alojamiento;
         this.diaInicio = diaInicio;
         this.diaFin = diaFin;
     }
@@ -30,7 +30,7 @@ public class Reserva {
         System.out.println("Precio total: $ " + getPrecioTotal());
         System.out.println("------------------------------------------");
         System.out.println(" \nHabitaciones: \n");
-        getTipoHabitacion().mostrarDatos();
+        alojamiento.verAlojamiento();
         System.out.println("------------------------------------------");
     }
 
@@ -60,12 +60,12 @@ public class Reserva {
         this.horaLlegada = horaLlegada;
     }
 
-    public TipoHabitacion getTipoHabitacion() {
-        return tipoHabitacion;
+    public Alojamiento getTipoHabitacion() {
+        return alojamiento;
     }
 
-    public void setTipoHabitacion(TipoHabitacion tipoHabitacion) {
-        this.tipoHabitacion = tipoHabitacion;
+    public void setTipoHabitacion(Alojamiento tipoHabitacion) {
+        this.alojamiento = tipoHabitacion;
     }
 
     public int getDiaInicio() {

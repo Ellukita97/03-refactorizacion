@@ -1,8 +1,10 @@
 package org.example.a;
 
+import java.util.LinkedList;
+
 public class Apartamento extends Alojamiento {
-    private int precioNoche;
-    private int cantidadHabitaciones;
+    private Integer precioNoche;
+    private Integer cantidadHabitaciones;
     private String descripcion;
 
     public Apartamento(String nombre, String ciudad, float calificacion, int precioNoche, int cantidadHabitaciones, String descripcion) {
@@ -12,20 +14,27 @@ public class Apartamento extends Alojamiento {
         this.descripcion = descripcion;
     }
 
+
     @Override
-    public float calcularPrecio() {
-        // Por Realizar
+    public float calcularPrecioMasBajo(int diaInicio, int diaFinal) {
         return 0;
+    }
+
+    @Override
+    public float calcularPrecio(float precio, int cantidadPersonas, int diaInicio, int diaFinal) {
+        System.out.println(diaFinal + diaInicio);
+        // Implementation for calculating hotel price
+        return 2;
     }
 
     @Override
     public void verAlojamiento() {
         System.out.println("Nombre: " + getNombre());
         System.out.println("Ciudad: " + getCiudad());
-        System.out.println("Calificación: " + getCalificacion());
+        System.out.println("Calificacion: " + getCalificacion());
         System.out.println("Precio por noche: " + getPrecioNoche());
         System.out.println("Cantidad de habitaciones: " + getCantidadHabitaciones());
-        System.out.println("Descripción: " + getDescripcion());
+        System.out.println("Descripcion: " + getDescripcion());
     }
 
     // Getters and setters

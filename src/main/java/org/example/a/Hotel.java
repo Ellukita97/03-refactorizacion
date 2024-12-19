@@ -1,6 +1,5 @@
 package org.example.a;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Hotel extends Alojamiento {
@@ -11,10 +10,75 @@ public class Hotel extends Alojamiento {
         this.listaHabitaciones = listaHabitaciones;
     }
 
+    public LinkedList<TipoHabitacion> verificarCantidadDeHabitaciones(int cantidadPersonas) {
+        System.out.println("Length habitaciones " + listaHabitaciones.size());
+        LinkedList<TipoHabitacion> newListaHabitaciones = new LinkedList<>();
+
+        for (TipoHabitacion habitacion : listaHabitaciones) {
+
+        }
+
+        for (TipoHabitacion unaHabiatacion : newListaHabitaciones) {
+            if (unaHabiatacion.getCantidad() < cantidadPersonas) {
+                newListaHabitaciones.remove(unaHabiatacion);
+            }
+        }
+        return newListaHabitaciones;
+    }
+
+    public float calcularPrecioMasBajo(int diaInicio, int diaFinal) {
+        int habitacionMasBaja = 0;
+        for (TipoHabitacion unaHabitacion : listaHabitaciones) {
+            if (habitacionMasBaja == 0) {
+                habitacionMasBaja = unaHabitacion.getPrecio();
+                continue;
+            }
+            if (habitacionMasBaja > unaHabitacion.getPrecio()) {
+                habitacionMasBaja = unaHabitacion.getPrecio();
+            }
+        }
+        return habitacionMasBaja == 0 ? 0 : habitacionMasBaja;
+    }
+
+    public void verHabitaciones() {
+        for (TipoHabitacion unHabitacion : getListaHabitaciones()) {
+            System.out.println("------------------------------------------");
+            unHabitacion.mostrarDatos();
+        }
+        System.out.println("------------------------------------------");
+    }
+
+    public void habitacionesDisponibles(String nombreHotel, int diaInicioHospedaje, int diaFinalHospedaje, int cantAdultos, int cantNinios, int cantHabitacionesCliente) {
+        if (!nombreHotel.equalsIgnoreCase(this.getNombre())) return;
+        System.out.println("ADASDASD");
+        int cantidadPersonas = cantAdultos + cantNinios;
+        System.out.println("------------------------------------------");
+        for (int i = 0; i< listaHabitaciones.size(); i++) {
+            if (listaHabitaciones.get(i).getCantidad() < cantHabitacionesCliente) continue;
+            System.out.println("Id: "+ i);
+            listaHabitaciones.get(i).mostrarDatos();
+            System.out.println("Precio total por su estadia: " + calcularPrecio(listaHabitaciones.get(i).getPrecio(), cantidadPersonas, diaInicioHospedaje, diaFinalHospedaje));
+            System.out.println("------------------------------------------");
+        }
+    }
+
     @Override
-    public float calcularPrecio() {
-        // Implementation for calculating hotel price
-        return 0;
+    public float calcularPrecio(float precio, int cantidadPersonas, int diaInicio, int diaFinal) {
+        double precioFinal = precio;
+
+        if ((diaInicio <= 10 && diaFinal >= 5)) {
+            precioFinal = precio - (precio * 0.08);
+        }
+
+        if ((diaInicio <= 15 && diaFinal >= 10)) {
+            precioFinal = precio + (precio * 0.10);
+        }
+
+        if ((diaInicio <= 31 && diaFinal >= 26)) {
+            precioFinal = precio + (precio * 0.15);
+        }
+
+        return (float) precioFinal * cantidadPersonas;
     }
 
     @Override
@@ -22,16 +86,6 @@ public class Hotel extends Alojamiento {
         System.out.println("Nombre: " + getNombre());
         System.out.println("Ciudad: " + getCiudad());
         System.out.println("Calificacion: " + getCalificacion());
-        System.out.println("Tipo de habitacion:");
-        verTiposHabitacion();
-    }
-
-    public void verTiposHabitacion() {
-        for (TipoHabitacion unHabitacion: getListaHabitaciones()){
-            System.out.println("------------------------------------------");
-            unHabitacion.mostrarDatos();
-        }
-        System.out.println("------------------------------------------");
     }
 
     // Getters and setters

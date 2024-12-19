@@ -1,47 +1,137 @@
 package org.example.a;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Main {
+
+    public static AlojamientoControladoraImplementacion controladoraApp = new AlojamientoControladoraImplementacion();
+    public static Scanner Keyboard = new Scanner(System.in);
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        Apartamento apartamento1 = new Apartamento("City View Apartment", "New York", 4.2f, 120, 2, "Spacious apartment with city views");
+
+        controladoraApp.cargarDatos();
+        limpiarConsola();
+
+        System.out.println("-----------------------------");
+        System.out.println("BIENVENIDO A Booking Hoteles");
+        System.out.println("Elija el tipo de alojamiento que desea");
+        String nombreCiudad = elegirNombreCiudad();
+        var alojamiento = elegirAlojamiento();
+        int cantHabitaciones = ingresarNumero("Ingrese la cantidad de habitaciones: ");
+        int cantAdultos = ingresarCantidadPersonas("Adultos");
+        int cantNinios = ingresarCantidadPersonas("Ninios");
+        System.out.println("Ingrese la fecha de inicio del hospedaje");
+        int inicioHospedaje = ingresarFecha();
+        System.out.println("Ingrese la fecha final del hospedaje");
+        int finalHospedaje = ingresarFecha();
+
+        controladoraApp.filtrarPorParametros(nombreCiudad, alojamiento, cantHabitaciones, inicioHospedaje, finalHospedaje, cantAdultos, cantNinios);
+        System.out.println("///////////////////////////////////////////////////////////////////////////////////");
+        if (alojamiento instanceof Hotel) {
+            Hotel unHotel = (Hotel) alojamiento;
+            unHotel.habitacionesDisponibles(unHotel.getNombre(), inicioHospedaje, finalHospedaje, cantAdultos, cantNinios, cantHabitaciones);
+        }
+
+    }
+
+    public static String elegirNombreCiudad() {
+        while (true) {
+            System.out.println("-----------------------------");
+            System.out.println("BIENVENIDO A Booking Hoteles");
+            System.out.println("Realize su reserva de habitaciones");
+            System.out.println("Elija la ciudad de el hotel al que desea viajar");
+            String ciudad = ingresarTexto("Escriba el nombre de la ciudad ");
+            if (controladoraApp.buscarCiudadNombre(ciudad)) return ciudad;
+        }
+    }
+
+    public static Alojamiento elegirAlojamiento() {
+        String[] tipoAlojamiento = {"Hotel", "Finca", "Apartamento"};
+        while (true) {
+            for (String tipo : tipoAlojamiento) {
+                controladoraApp.mostrarTodosAlojamientos(tipo);
+                int num = ingresarNumero("Eliga una opción (id para elegir " + tipo + ", o -1 para continuar): ");
+                Alojamiento alojamientoElegido = controladoraApp.econtrarAlojamientos(tipo, num);
+                if (alojamientoElegido != null) return alojamientoElegido;
+            }
+        }
+    }
+
+    public static int ingresarCantidadPersonas(String tipoPersona) {
+        System.out.println("-----------------------------");
+        int cantPersonas = ingresarNumeroPositivo("Ingrese la cantidad de " + tipoPersona + " a ingresar: ");
+        System.out.println("-----------------------------");
+        return cantPersonas;
+    }
+
+    private static int ingresarNumeroPositivo(String mensaje) {
+        while (true) {
+            int numero = ingresarNumero(mensaje);
+            if (numero > 0) return numero;
+            System.out.println("No es un numero válido");
+        }
+    }
+
+    public static int ingresarFecha() {
+        while (true) {
+            int dia = ingresarNumero("Ingrese el dia: ");
+            if (dia < 1 || dia > 31) {
+                limpiarConsola();
+                System.out.println("Error ingrese los datos nuevamente");
+                continue;
+            }
+            return dia;
+        }
+    }
+
+    /*public static void seleccionarHabitacion(LinkedList<Habitacion> habitaciones, ReservacionCliente reservacionCliente) {
+        boolean salir = false;
+        while (!salir) {
+            System.out.println("-----------------------------");
+            int idHabitacion = Sistema.ingresarNumero("Ingrese la id de la habitacion a reservar: ");
 
 
-        LinkedList<String> listaActividades = new LinkedList<>();
-        listaActividades.add("Hiking");
-        listaActividades.add("swimming");
-        listaActividades.add("campfire");
-        DiaSol diaSol = new DiaSol(listaActividades, true);
-        Finca finca1 = new Finca("Mountain View Finca", "Colorado", 4.8f, diaSol, 150, 3, "Beautiful mountain view and peaceful atmosphere");
+            for (int i = 0; i < habitaciones.size(); i++) {
+                if (habitaciones.get(i).getIdHabitacion() == idHabitacion) {
 
-        LinkedList<TipoHabitacion> habitaciones = new LinkedList<>();
-        habitaciones.add(new TipoHabitacion("Standard", "Single room with basic amenities", 10, 50));
-        habitaciones.add(new TipoHabitacion("Deluxe", "Double room with additional amenities", 5, 100));
-        Hotel hotel1 = new Hotel("Hotel XYZ", "New York", 4.5f, habitaciones);
+                    reservacionCliente.setHabitacionCompradaDatos(habitaciones.get(i));
+                    System.out.println("Habitacion seleccionada con exito");
+                    return;
+                }
+            }
 
+            //limpiarConsola();
+            System.out.println("Habitacion no encontrada");
+        }
 
-        Cliente cliente = new Cliente("John", "Doe", "USA", "123-456-7890", "johndoe@example.com", LocalDate.of(1990, 1, 1));
-        TipoHabitacion habitacion = new TipoHabitacion("Standard", "Single room with basic amenities", 10, 50);
-
-        Reserva reserva1 = new Reserva(cliente, 200, LocalTime.of(12, 0), habitacion, 1, 5);
+    }*/
 
 
+    public static String ingresarTexto(String msg) {
+        System.out.print(msg);
+        return Keyboard.nextLine();
+    }
 
+    public static int ingresarNumero(String msg) {
+        int numero = 0;
+        System.out.print(msg);
+        while (true) {
+            if (Keyboard.hasNextInt()) {
+                numero = Keyboard.nextInt();
+                break;
+            } else {
+                System.out.println("Error: Debe ingresar un número válido. Intente nuevamente.");
+                Keyboard.next();
+            }
+        }
+        return numero;
+    }
 
-
-        apartamento1.verAlojamiento();
-        System.out.println("\n//////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
-        finca1.verAlojamiento();
-        System.out.println("\n//////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
-        hotel1.verAlojamiento();
-        System.out.println("\n//////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
-        cliente.mostrarDatos();
-        System.out.println("\n//////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
-        habitacion.mostrarDatos();
-        System.out.println("\n//////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
-        reserva1.mostrarDetallesReserva();
+    public static void limpiarConsola() {
+        // Imprime 50 líneas en blanco para simular la limpieza
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
+        }
     }
 }

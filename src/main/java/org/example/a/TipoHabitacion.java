@@ -3,8 +3,8 @@ package org.example.a;
 public class TipoHabitacion {
     private String titulo;
     private String descripcion;
-    private int cantidad;
-    private int precio;
+    private Integer cantidad;
+    private Integer precio;
 
     public TipoHabitacion(String titulo, String descripcion, int cantidad, int precio) {
         this.titulo = titulo;

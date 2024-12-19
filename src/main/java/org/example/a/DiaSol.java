@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class DiaSol {
     private LinkedList<String> actividades;
-    private boolean incluyeAlmuerzo;
+    private Boolean incluyeAlmuerzo;
 
     public DiaSol(LinkedList<String> actividades, boolean incluyeAlmuerzo) {
         this.actividades = actividades;

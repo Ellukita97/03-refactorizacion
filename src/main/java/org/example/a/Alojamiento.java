@@ -1,9 +1,11 @@
 package org.example.a;
 
+import java.util.LinkedList;
+
 public abstract class Alojamiento {
     private String nombre;
     private String ciudad;
-    private float calificacion;
+    private Float calificacion;
 
     public Alojamiento(String nombre, String ciudad, float calificacion) {
         this.nombre = nombre;
@@ -11,7 +13,9 @@ public abstract class Alojamiento {
         this.calificacion = calificacion;
     }
 
-    public abstract float calcularPrecio();
+    public abstract float calcularPrecioMasBajo(int diaInicio, int diaFinal);
+
+    public abstract float calcularPrecio(float precio, int cantidadPersonas, int diaInicio, int diaFinal);
 
     public abstract void verAlojamiento();
 
