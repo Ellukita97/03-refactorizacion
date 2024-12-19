@@ -185,7 +185,7 @@ public class AlojamientoControladoraImplementacion implements IAlojamientoContro
     private boolean filtrarPorHabitaciones(Alojamiento alojamiento, int cantHabitacionesCliente, Finca fincaElegida) {
         if (alojamiento instanceof Finca) {
             Finca unFinca = (Finca) alojamiento;
-            if (!unFinca.getNombre().equalsIgnoreCase(fincaElegida.getNombre())) return false;
+            if (unFinca.getNombre().equalsIgnoreCase(fincaElegida.getNombre())) return false;
             if (unFinca.getCantidadHabitaciones() < cantHabitacionesCliente) return false;
             return true;
         }
@@ -216,40 +216,6 @@ public class AlojamientoControladoraImplementacion implements IAlojamientoContro
             System.out.println("------------------------------------------");
             index++;
         }
-    }
-
-    //Getters y Setters
-
-    public static LinkedList<Hotel> getListaHotel() {
-        return listaHotel;
-    }
-
-    public static void setListaHotel(LinkedList<Hotel> listaHotel) {
-        AlojamientoControladoraImplementacion.listaHotel = listaHotel;
-    }
-
-    public static LinkedList<Finca> getListaFinca() {
-        return listaFinca;
-    }
-
-    public static void setListaFinca(LinkedList<Finca> listaFinca) {
-        AlojamientoControladoraImplementacion.listaFinca = listaFinca;
-    }
-
-    public static LinkedList<Apartamento> getListaApartamento() {
-        return listaApartamento;
-    }
-
-    public static void setListaApartamento(LinkedList<Apartamento> listaApartamento) {
-        AlojamientoControladoraImplementacion.listaApartamento = listaApartamento;
-    }
-
-    public static LinkedList<Alojamiento> getAlojamientosDisponibles() {
-        return alojamientosDisponibles;
-    }
-
-    public static void setAlojamientosDisponibles(LinkedList<Alojamiento> alojamientosDisponibles) {
-        AlojamientoControladoraImplementacion.alojamientosDisponibles = alojamientosDisponibles;
     }
 
 }

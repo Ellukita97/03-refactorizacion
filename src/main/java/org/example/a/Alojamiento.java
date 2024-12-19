@@ -39,23 +39,11 @@ public abstract class Alojamiento {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getCiudad() {
         return ciudad;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
     public float getCalificacion() {
         return calificacion;
-    }
-
-    public void setCalificacion(float calificacion) {
-        this.calificacion = calificacion;
     }
 }

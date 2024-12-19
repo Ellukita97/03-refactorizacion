@@ -34,12 +34,13 @@ public class Finca extends Alojamiento {
             return;
         }
 
-        System.out.println("Nombre: " + getNombre());
-        System.out.println("Ciudad: " + getCiudad());
-        System.out.println("Calificacion: " + getCalificacion());
-        System.out.println("Precio por noche: " + getPrecioNoche());
-        System.out.println("Cantidad de habitaciones: " + getCantidadHabitaciones());
-        System.out.println("Descripcion: " + getDescripcion());
+        System.out.println("Nombre: " + getNombre() +
+                "\nCiudad: " + getCiudad() +
+                "\nCalificación: " + getCalificacion() +
+                "\nPrecio por noche: " + getPrecioNoche() +
+                "\nCantidad de habitaciones: " + getCantidadHabitaciones() +
+                "\nDescripción: " + getDescripcion());
+
         getDiaSol().mostrarDatos();
     }
 
@@ -49,31 +50,16 @@ public class Finca extends Alojamiento {
         return diaSol;
     }
 
-    public void setDiaSol(DiaSol diaSol) {
-        this.diaSol = diaSol;
-    }
-
     public float getPrecioNoche() {
         return precioNoche;
-    }
-
-    public void setPrecioNoche(float precioNoche) {
-        this.precioNoche = precioNoche;
     }
 
     public int getCantidadHabitaciones() {
         return cantidadHabitaciones;
     }
 
-    public void setCantidadHabitaciones(int cantidadHabitaciones) {
-        this.cantidadHabitaciones = cantidadHabitaciones;
-    }
-
     public String getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 }

@@ -26,15 +26,8 @@ public class DiaSol {
         return actividades;
     }
 
-    public void setActividades(LinkedList<String> actividades) {
-        this.actividades = actividades;
-    }
-
     public boolean isIncluyeAlmuerzo() {
         return incluyeAlmuerzo;
     }
 
-    public void setIncluyeAlmuerzo(boolean incluyeAlmuerzo) {
-        this.incluyeAlmuerzo = incluyeAlmuerzo;
-    }
 }

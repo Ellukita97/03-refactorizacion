@@ -14,10 +14,6 @@ public class Hotel extends Alojamiento {
         System.out.println("Length habitaciones " + listaHabitaciones.size());
         LinkedList<Habitacion> newListaHabitaciones = new LinkedList<>();
 
-        for (Habitacion habitacion : listaHabitaciones) {
-
-        }
-
         for (Habitacion unaHabiatacion : newListaHabitaciones) {
             if (unaHabiatacion.getCantidad() < cantidadPersonas) {
                 newListaHabitaciones.remove(unaHabiatacion);
@@ -38,14 +34,6 @@ public class Hotel extends Alojamiento {
             }
         }
         return habitacionMasBaja == 0 ? 0 : habitacionMasBaja;
-    }
-
-    public void verHabitaciones() {
-        for (Habitacion unHabitacion : getListaHabitaciones()) {
-            System.out.println("------------------------------------------");
-            unHabitacion.mostrarDatos();
-        }
-        System.out.println("------------------------------------------");
     }
 
     public LinkedList<Habitacion> habitacionesDisponibles(String nombreHotel, int diaInicioHospedaje, int diaFinalHospedaje, int cantAdultos, int cantNinios, int cantHabitacionesCliente) {
@@ -94,10 +82,6 @@ public class Hotel extends Alojamiento {
     }
 
     // Getters and setters
-
-    public LinkedList<Habitacion> getListaHabitaciones() {
-        return listaHabitaciones;
-    }
 
     public void setListaHabitaciones(LinkedList<Habitacion> listaHabitaciones) {
         this.listaHabitaciones = listaHabitaciones;

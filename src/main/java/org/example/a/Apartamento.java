@@ -33,23 +33,12 @@ public class Apartamento extends Alojamiento {
         return precioNoche;
     }
 
-    public void setPrecioNoche(int precioNoche) {
-        this.precioNoche = precioNoche;
-    }
-
     public String getDescripcion() {
         return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 
     public int getCantidadHabitaciones() {
         return cantidadHabitaciones;
     }
 
-    public void setCantidadHabitaciones(int cantidadHabitaciones) {
-        this.cantidadHabitaciones = cantidadHabitaciones;
-    }
 }

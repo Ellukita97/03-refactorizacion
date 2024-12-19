@@ -14,16 +14,7 @@ public class Reserva {
 
     public Reserva() {
     }
-
-    public Reserva(Cliente cliente, float precioTotal, LocalTime horaLlegada, Alojamiento alojamiento, int diaInicio, int diaFin) {
-        this.cliente = cliente;
-        this.precioTotal = precioTotal;
-        this.horaLlegada = horaLlegada;
-        this.alojamiento = alojamiento;
-        this.diaInicio = diaInicio;
-        this.diaFin = diaFin;
-    }
-
+    
     public boolean reservarHabitacionCliente(String nombre, String apellido, String email, String nacionalidad, String telefono, Date fechaNacimiento, LocalTime horaDeLlegada) {
         Cliente clienteSeleccionado = new Cliente(nombre, apellido, nacionalidad, telefono, email, fechaNacimiento);
         this.setCliente(clienteSeleccionado);
